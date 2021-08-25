@@ -5,13 +5,15 @@ on:
     branches:
       - main
   pull_request:
+    only:
+    changes:
+      - nginx-html/index.html
 
 env:
   IMAGE_NAME: craftech-devops-grunt
 
 jobs:
   docker-build-image:
-
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
     steps:
